@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:www.whiteoutsurvival.wiki)",
       "WebFetch(domain:whiteoutsurvival.wiki)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

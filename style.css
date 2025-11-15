@@ -31,8 +31,36 @@ header {
 
 header h1 {
     font-size: 2.5em;
-    margin-bottom: 8px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.language-select {
+    padding: 8px 12px;
+    background: rgba(5, 16, 48, 0.7);
+    border: 2px solid #2196F3;
+    border-radius: 6px;
+    color: #64B5F6;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9em;
+}
+
+.language-select:hover {
+    background: rgba(33, 150, 243, 0.2);
+    border-color: #42A5F5;
+}
+
+.language-select:focus {
+    outline: none;
+    background: rgba(33, 150, 243, 0.25);
+    border-color: #42A5F5;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+.language-select option {
+    background: #051030;
+    color: #64B5F6;
 }
 
 header p {
