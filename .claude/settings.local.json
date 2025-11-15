@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.whiteoutsurvival.wiki)",
+      "WebFetch(domain:whiteoutsurvival.wiki)",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

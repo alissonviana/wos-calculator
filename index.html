@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Without Survival - Calculadora Confronto da Aliança</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/06/19094752/%E8%81%94%E7%9B%9F%E5%A4%A7%E4%BD%9C%E6%88%98.png" alt="Confronto da Aliança" class="header-event-icon-inline"> Confronto da Aliança</h1>
+            <p>Otimizador de Pontos por Recursos</p>
+        </header>
+
+        <main>
+            <!-- Como Funciona -->
+            <div class="info">
+                <h2>📋 Como Funciona</h2>
+                <ul>
+                    <li>💾 Digite o TOTAL de recursos que você possui</li>
+                    <li>🤖 A calculadora recomenda como distribuir entre os dias</li>
+                    <li>🔢 Veja os pontos estimados para cada dia</li>
+                    <li>⚡ Maximize seus pontos automaticamente!</li>
+                </ul>
+            </div>
+
+            <!-- Seção de Entrada de Recursos -->
+            <div class="resources-section">
+                <h2>📦 Seus Recursos Totais</h2>
+                <p class="section-description">Digite a quantidade total de cada recurso que você possui</p>
+
+                <div class="resources-grid">
+                    <!-- Cristais de Fogo -->
+                    <div class="resource-group">
+                        <h3>🔥 Cristais de Fogo</h3>
+                        <div class="resource-input">
+                            <label for="total-refined-fire-crystal"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/05/21122055/item_icon_100082.png" alt="Cristal de Fogo Refinado" class="resource-icon"> Cristal Refinado:</label>
+                            <input type="number" id="total-refined-fire-crystal" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-fire-crystal"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/07/item_icon_100081.png" alt="Cristal de Fogo" class="resource-icon"> Cristal Normal:</label>
+                            <input type="number" id="total-fire-crystal" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-crystal-fragment"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/07/item_icon_100083.png" alt="Fragmento de Cristal" class="resource-icon"> Fragmento Cristal:</label>
+                            <input type="number" id="total-crystal-fragment" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Fragmentos de Herói -->
+                    <div class="resource-group">
+                        <h3>📜 Fragmentos de Herói</h3>
+                        <div class="resource-input">
+                            <label for="total-rare-hero-fragment"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/item_icon_500222.png" alt="Fragmento Raro" class="resource-icon"> Fragmento Raro:</label>
+                            <input type="number" id="total-rare-hero-fragment" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-epic-hero-fragment"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/item_icon_500221.png" alt="Fragmento Épico" class="resource-icon"> Fragmento Épico:</label>
+                            <input type="number" id="total-epic-hero-fragment" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-rare-mythic-fragment"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/item_icon_500220.png" alt="Fragmento Mítico" class="resource-icon"> Fragmento Mítico:</label>
+                            <input type="number" id="total-rare-mythic-fragment" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Equipamento e Marcas -->
+                    <div class="resource-group">
+                        <h3>🐾 Equipamento e Marcas</h3>
+                        <div class="resource-input">
+                            <label for="total-chief-amulet">🎁 Amuleto do Chefe:</label>
+                            <input type="number" id="total-chief-amulet" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-advanced-wild-mark"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/11/item_icon_600047.png" alt="Marca Avançada" class="resource-icon"> Marca Avançada:</label>
+                            <input type="number" id="total-advanced-wild-mark" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-common-wild-mark"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/11/item_icon_600046.png" alt="Marca Comum" class="resource-icon"> Marca Comum:</label>
+                            <input type="number" id="total-common-wild-mark" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-animal-advance">🐺 Avanço Animal:</label>
+                            <input type="number" id="total-animal-advance" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Equipamento de Herói -->
+                    <div class="resource-group">
+                        <h3>⚡ Equipamento de Herói</h3>
+                        <div class="resource-input">
+                            <label for="total-hero-equipment-essence">💠 Pedra Essência:</label>
+                            <input type="number" id="total-hero-equipment-essence" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-hero-equipment-tool">🔧 Ferramenta:</label>
+                            <input type="number" id="total-hero-equipment-tool" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-mithril"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/03/item_icon_500235.png" alt="Mithril" class="resource-icon"> Mithril:</label>
+                            <input type="number" id="total-mithril" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Aceleradores e Consumíveis -->
+                    <div class="resource-group">
+                        <h3>⏱️ Consumíveis</h3>
+                        <div class="resource-input">
+                            <label for="total-accelerator">⏱️ Minutos Acelerador:</label>
+                            <input type="number" id="total-accelerator" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-expert-sigil"><img src="https://gom-s3-user-avatar.s3.us-west-2.amazonaws.com/wp-content/uploads/2025/08/item_icon_570000.png" alt="Sigilo de Especialista" class="resource-icon"> Sigilo Especialista:</label>
+                            <input type="number" id="total-expert-sigil" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-knowledge-book">📖 Livro Conhecimento:</label>
+                            <input type="number" id="total-knowledge-book" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-gem">💎 Gemas:</label>
+                            <input type="number" id="total-gem" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Recursos de Coleta -->
+                    <div class="resource-group">
+                        <h3>🏪 Recursos</h3>
+                        <div class="resource-input">
+                            <label for="total-meat">🥩 Carne:</label>
+                            <input type="number" id="total-meat" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-wood">🪵 Madeira:</label>
+                            <input type="number" id="total-wood" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-charcoal">♠️ Carvão:</label>
+                            <input type="number" id="total-charcoal" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                        <div class="resource-input">
+                            <label for="total-iron">⚒️ Ferro:</label>
+                            <input type="number" id="total-iron" min="0" value="0" onchange="optimizeResources()">
+                        </div>
+                    </div>
+
+                    <!-- Treino de Tropas -->
+                    <div class="resource-group">
+                        <h3>🪖 Treino de Tropas</h3>
+                        <p class="group-description">Disponível apenas no Dia 4</p>
+                        <div class="troop-training">
+                            <div class="troop-level-select">
+                                <label for="troop-level">Nível da Tropa:</label>
+                                <select id="troop-level" onchange="updateTroopPoints()">
+                                    <option value="1">Nível 1 - 1 ponto</option>
+                                    <option value="2">Nível 2 - 1 ponto</option>
+                                    <option value="3">Nível 3 - 2 pontos</option>
+                                    <option value="4">Nível 4 - 3 pontos</option>
+                                    <option value="5">Nível 5 - 4 pontos</option>
+                                    <option value="6">Nível 6 - 7 pontos</option>
+                                    <option value="7">Nível 7 - 10 pontos</option>
+                                    <option value="8">Nível 8 - 14 pontos</option>
+                                    <option value="9">Nível 9 - 18 pontos</option>
+                                    <option value="10">Nível 10 - 24 pontos</option>
+                                    <option value="11">Nível 11 - 30 pontos</option>
+                                </select>
+                            </div>
+                            <div class="resource-input">
+                                <label for="troop-quantity">Quantidade:</label>
+                                <input type="number" id="troop-quantity" min="0" value="0" onchange="optimizeResources()">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-reset-all" onclick="clearAll()">Limpar Tudo</button>
+                </div>
+            </div>
+
+            <!-- Seção de Distribuição Recomendada -->
+            <div class="distribution-section">
+                <h2>📊 Distribuição Recomendada</h2>
+                <p class="section-description">Como usar seus recursos para maximizar pontos em cada dia</p>
+
+                <div id="distribution-container"></div>
+            </div>
+
+            <!-- Seção de Resultados -->
+            <div class="results-section">
+                <h2>🏆 Pontos Estimados por Dia</h2>
+                <p class="section-description">Com a distribuição recomendada:</p>
+
+                <div class="results-grid">
+                    <div class="result-card day-1">
+                        <div class="result-header">
+                            <h3>Dia 1</h3>
+                            <span class="alliance-points">1 ponto para aliança</span>
+                        </div>
+                        <div id="resultado-dia1" class="result-content">-</div>
+                    </div>
+
+                    <div class="result-card day-2">
+                        <div class="result-header">
+                            <h3>Dia 2</h3>
+                            <span class="alliance-points">2 pontos para aliança</span>
+                        </div>
+                        <div id="resultado-dia2" class="result-content">-</div>
+                    </div>
+
+                    <div class="result-card day-3">
+                        <div class="result-header">
+                            <h3>Dia 3</h3>
+                            <span class="alliance-points">2 pontos para aliança</span>
+                        </div>
+                        <div id="resultado-dia3" class="result-content">-</div>
+                    </div>
+
+                    <div class="result-card day-4">
+                        <div class="result-header">
+                            <h3>Dia 4</h3>
+                            <span class="alliance-points">2 pontos para aliança</span>
+                        </div>
+                        <div id="resultado-dia4" class="result-content">-</div>
+                    </div>
+
+                    <div class="result-card day-5">
+                        <div class="result-header">
+                            <h3>Dia 5</h3>
+                            <span class="alliance-points">2 pontos para aliança</span>
+                        </div>
+                        <div id="resultado-dia5" class="result-content">-</div>
+                    </div>
+
+                    <div class="result-card day-6">
+                        <div class="result-header">
+                            <h3>Dia 6</h3>
+                            <span class="alliance-points">4 pontos para aliança</span>
+                        </div>
+                        <div id="resultado-dia6" class="result-content">-</div>
+                    </div>
+                </div>
+
+                <div class="total-summary">
+                    <div class="summary-stat">
+                        <label>Total de Pontos (Todos os dias):</label>
+                        <div class="summary-value" id="total-pontos-geral">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guia de Pontos por Dia -->
+            <div class="guide-section">
+                <h2>📋 Resumo das Regras</h2>
+                <p class="section-description">O que pontua em cada dia e quanto cada recurso vale</p>
+
+                <div class="days-tabs">
+                    <button class="day-tab active" onclick="showDayGuide(1)">Dia I</button>
+                    <button class="day-tab" onclick="showDayGuide(2)">Dia II</button>
+                    <button class="day-tab" onclick="showDayGuide(3)">Dia III</button>
+                    <button class="day-tab" onclick="showDayGuide(4)">Dia IV</button>
+                    <button class="day-tab" onclick="showDayGuide(5)">Dia V</button>
+                    <button class="day-tab" onclick="showDayGuide(6)">Dia VI</button>
+                </div>
+
+                <div id="guide-content" class="guide-content"></div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>⚔️ Calculadora Confronto da Aliança | v2.0</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
